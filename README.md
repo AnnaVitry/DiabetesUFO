@@ -37,3 +37,11 @@ Le dataset utilisé provient de la source: https://archive.ics.uci.edu/dataset/5
 
 - Les noms de colonnes ont été modifiés pour respecter le snakecase ainsi que tout en minuscules.
 - Les valeurs des données ont été modifiées en "booléens" à valeur entière (0/1) pour faciliter l'apprentissage automatique.
+
+## Bibliotéques ajoutées
+
+| Librairie   | Description courte | Commande d’installation | Utilisation principale |
+|--------------|--------------------|--------------------------|------------------------|
+| **Matplotlib** | Bibliothèque de base pour créer des graphiques 2D (courbes, histogrammes, scatter plots, etc.) | `pip install matplotlib` | Visualisation personnalisée et fine des données |
+| **Pandas** | Outil essentiel pour la manipulation, le nettoyage et l’analyse de données tabulaires (DataFrames) | `pip install pandas` | Chargement, transformation et agrégation de données |
+| **Seaborn** | Extension de Matplotlib qui simplifie la création de graphiques statistiques attrayants | `pip install seaborn` | Visualisations statistiques (heatmaps, boxplots, pairplots, etc.) |
