@@ -46,7 +46,20 @@ def read_root():
 
 @app.get('/health')
 def health_check():
-    return {'status': 'healthy'}
+    # Vérifier la présence du fichier modèle
+    model_exists = MODEL_PATH.exists()
+    model_loaded = diabeast is not None
+
+    health_status = {
+        'status': 'healthy' if (model_exists and model_loaded) else 'unhealthy',
+        'model': {
+            'path': str(MODEL_PATH),
+            'exists': model_exists,
+            'loaded': model_loaded
+        }
+    }
+
+    return health_status
 
 
 # --- Endpoint de prédiction ---
