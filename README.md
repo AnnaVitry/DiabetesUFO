@@ -45,3 +45,4 @@ Le dataset utilisé provient de la source: https://archive.ics.uci.edu/dataset/5
 | **Matplotlib** | Bibliothèque de base pour créer des graphiques 2D (courbes, histogrammes, scatter plots, etc.) | `pip install matplotlib` | Visualisation personnalisée et fine des données |
 | **Pandas** | Outil essentiel pour la manipulation, le nettoyage et l’analyse de données tabulaires (DataFrames) | `pip install pandas` | Chargement, transformation et agrégation de données |
 | **Seaborn** | Extension de Matplotlib qui simplifie la création de graphiques statistiques attrayants | `pip install seaborn` | Visualisations statistiques (heatmaps, boxplots, pairplots, etc.) |
+| **Scikit-learn** | Bibliothèque clé pour le machine learning en Python (classification, régression, clustering, etc.) | `pip install scikit-learn` | Entraînement et évaluation de modèles de machine learning |
