@@ -88,3 +88,13 @@ Les éléments suivants :
 - Scikit-Learn sur grid_search: https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html
 - Joblib Doc: https://joblib.readthedocs.io/en/stable/
 
+---
+
+# ML3
+
+## Blibliothéques ajoutées
+
+| Librairie   | Description courte | Commande d’installation | Utilisation principale |
+|--------------|--------------------|--------------------------|------------------------|
+| **FastAPI** | Framework web moderne, rapide et asynchrone pour construire des API avec Python. Il repose sur les standards OpenAPI et JSON Schema, facilitant la documentation automatique et les interactions avec les modèles de machine learning. | `pip install fastapi uvicorn` | Création et déploiement d’API performantes pour ex
+
