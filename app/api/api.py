@@ -1,8 +1,8 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 import joblib
 import numpy as np
 from pydantic import BaseModel
-# from  sklearn.ensemble import RandomForestClassifier
+from pathlib import Path
 
 class PatientData(BaseModel):
     age: int
@@ -22,7 +22,17 @@ class PatientData(BaseModel):
     alopecia: int
     obesity: int
 
-diabeast = joblib.load('model/diabeast.pkl')
+# Load model with proper path handling
+MODEL_PATH = Path(__file__).parent.parent.parent / 'model' / 'diabeast.pkl'
+
+try:
+    if not MODEL_PATH.exists():
+        raise FileNotFoundError(f"Model file not found at {MODEL_PATH}")
+    diabeast = joblib.load(MODEL_PATH)
+except Exception as e:
+    print(f"Error loading model: {e}")
+    raise
+
 app = FastAPI()
 
 @app.get('/')
@@ -31,22 +41,25 @@ def read_root():
 
 
 @app.post('/predict')
-def predict(data:PatientData):
-    # Convertir les données en tableau numpy
-    input_data = np.array([[value for value in data.dict().values()]])
-    
-    # Faire la prédiction
-    prediction = diabeast.predict(input_data)[0]
-    proba = diabeast.predict_proba(input_data).tolist()[0]  # Pour retourner aussi les probabilités
-    
-    # Retourner le résultat en JSON
-    return {
-        "prediction": int(prediction),
-        "probabilities": {
-            "negative": proba[0],
-            "positive": proba[1]
+def predict(data: PatientData):
+    try:
+        # Convertir les données en tableau numpy (fixed deprecated method)
+        input_data = np.array([[value for value in data.model_dump().values()]])
+
+        # Faire la prédiction
+        prediction = diabeast.predict(input_data)[0]
+        proba = diabeast.predict_proba(input_data).tolist()[0]  # Pour retourner aussi les probabilités
+
+        # Retourner le résultat en JSON
+        return {
+            "prediction": int(prediction),
+            "probabilities": {
+                "negative": proba[0],
+                "positive": proba[1]
+            }
         }
-    }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Prediction error: {str(e)}")
    
 # curl -X POST "http://127.0.0.1:8000/predict" \
 # -H "Content-Type: application/json" \
