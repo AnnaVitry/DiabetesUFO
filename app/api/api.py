@@ -37,7 +37,7 @@ except Exception as e:
     print(f"Error loading model: {e}")
     raise
 
-app = FastAPI()
+app = FastAPI(title="Diabeast API - FastAPI", version="1.0")
 
 @app.get('/')
 def read_root():

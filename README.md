@@ -98,11 +98,11 @@ Les éléments suivants :
 ## Blibliothéques ajoutées
 
 | Librairie   | Description courte | Commande d’installation | Utilisation principale |
-|------------|--------------------|------------------------|----------------------|
-| **FastAPI** | Framework web moderne, rapide et asynchrone pour construire des API avec Python. Il repose sur les standards OpenAPI et JSON Schema, facilitant la documentation automatique et les interactions avec les modèles de machine learning. | `pip install fastapi[standard]` | Création et déploiement d’API performantes pour exposer des modèles de machine learning ou tout autre service web, avec documentation interactive générée automatiquement. |
+|--------------|--------------------|--------------------------|------------------------|
+| **FastAPI** | Framework web moderne, rapide et asynchrone pour construire des API avec Python. Il repose sur les standards **OpenAPI** et **JSON Schema**, facilitant la documentation automatique et les interactions avec les modèles de machine learning. | `pip install fastapi[standard]` | Création et déploiement d’API performantes pour exposer des modèles de machine learning ou tout autre service web, avec documentation interactive générée automatiquement. |
 | **Pydantic** | Bibliothèque pour la validation et la sérialisation de données en Python, utilisée par FastAPI pour gérer les modèles de données d’entrée et de sortie. | `pip install pydantic` | Définition de schémas de données stricts et validation automatique des requêtes JSON dans les API FastAPI. |
 | **NumPy** | Bibliothèque fondamentale pour le calcul scientifique en Python, utilisée pour manipuler efficacement des tableaux et matrices numériques. | `pip install numpy` | Manipulation de tableaux et matrices, préparation des données pour les modèles de machine learning et calculs numériques rapides. |
-<!-- | **Joblib** | Outil performant pour la sérialisation et la sauvegarde de modèles Python, notamment ceux créés avec Scikit-learn. | `pip install joblib` | Sauvegarde et restauration rapide de modèles entraînés pour le déploiement ou la réutilisation dans une API. | -->
+| **Pathlib** | Module standard de Python (intégré à partir de la version 3.4) permettant une gestion moderne et orientée objet des chemins de fichiers et répertoires. | *(inclus par défaut avec Python ≥ 3.4)* | Gestion simple et lisible des chemins vers les modèles, données et ressources dans le projet FastAPI. |
 
 
 ## Comandes executable pour api.py
@@ -118,3 +118,9 @@ $ fastapi dev ./app/api/api.py
 
 - **Pydantic** : validation et sérialisation des données pour FastAPI  
   [Documentation officielle Pydantic - `BaseModel`](https://docs.pydantic.dev/latest/usage/models/)
+
+## Comment utliser?
+
+Ce référer au README.md dans ./app/api/README.md
+
+---
