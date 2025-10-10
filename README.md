@@ -4,6 +4,13 @@ ML simplon sur du dataset medical pour prévoir la maladie du diabéte; avec Ann
 
 # ML1
 
+## Objectifs:
+Nettoyage de données du CSV sur le diabéte.
+
+## Livrables
+- un notebook eda_<initiales>_diabetes.ipynb
+- un fichier diabetes_clean.csv
+
 ## Dataset utilisé
 Le dataset utilisé provient de la source: https://archive.ics.uci.edu/dataset/529/early+stage+diabetes+risk+prediction+dataset
 
@@ -51,6 +58,14 @@ Le dataset utilisé provient de la source: https://archive.ics.uci.edu/dataset/5
 
  # ML2
 
+## Objectifs:
+Entrainement et creation d'un model sur les datas des CSV de ML1.
+
+## Livrables
+- Notebook de travail .ipynb
+- Artefact modèle en .pkl
+
+
 ## Bibliotéques ajoutées
 
 | Librairie   | Description courte | Commande d’installation | Utilisation principale |
@@ -95,6 +110,17 @@ Les éléments suivants :
 
 # ML3
 
+## Objectifs:
+Création d'une API avec le modéle créer en ML2.
+
+## Livrables
+- Un fichier README.md
+- Un service lançable
+- Endpoints :
+  - santé : /health (optionnel)
+  - prédiction : /predict (obligatoire)
+
+
 ## Blibliothéques ajoutées
 
 | Librairie   | Description courte | Commande d’installation | Utilisation principale |
@@ -124,3 +150,13 @@ $ fastapi dev ./app/api/api.py
 Ce référer au README.md dans ./app/api/README.md
 
 ---
+
+# ML4
+
+## Objectifs:
+Créer une interface/app pour notre API.
+
+## Livrables
+- Code de l’app + README (comment lancer) sous github
+- Exemple d’appel (curl) collé dans le README.
+
