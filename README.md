@@ -1,7 +1,8 @@
 # DiabetesUFO
 ML simplon sur du dataset medical pour prévoir la maladie du diabéte; avec Anna, Olivier et Fidel :)
+---
 
-
+# ML1
 
 ## Dataset utilisé
 Le dataset utilisé provient de la source: https://archive.ics.uci.edu/dataset/529/early+stage+diabetes+risk+prediction+dataset
@@ -45,4 +46,45 @@ Le dataset utilisé provient de la source: https://archive.ics.uci.edu/dataset/5
 | **Matplotlib** | Bibliothèque de base pour créer des graphiques 2D (courbes, histogrammes, scatter plots, etc.) | `pip install matplotlib` | Visualisation personnalisée et fine des données |
 | **Pandas** | Outil essentiel pour la manipulation, le nettoyage et l’analyse de données tabulaires (DataFrames) | `pip install pandas` | Chargement, transformation et agrégation de données |
 | **Seaborn** | Extension de Matplotlib qui simplifie la création de graphiques statistiques attrayants | `pip install seaborn` | Visualisations statistiques (heatmaps, boxplots, pairplots, etc.) |
-| **Scikit-learn** | Bibliothèque clé pour le machine learning en Python (classification, régression, clustering, etc.) | `pip install scikit-learn` | Entraînement et évaluation de modèles de machine learning |
+
+---
+
+ # ML2
+
+## Bibliotéques ajoutées
+
+| Librairie   | Description courte | Commande d’installation | Utilisation principale |
+|--------------|--------------------|--------------------------|------------------------|
+| **Scikit-learn** | Bibliothèque essentielle pour le machine learning en Python, intégrant de nombreux algorithmes de classification, régression et clustering. | `pip install scikit-learn` | Entraînement, optimisation et évaluation de modèles de machine learning supervisés et non supervisés. |
+| **Joblib** | Outil performant pour la sérialisation, la sauvegarde et le chargement de modèles Python, notamment ceux créés avec Scikit-learn. | `pip install joblib` | Sauvegarde et restauration rapide des modèles entraînés pour le déploiement ou la réutilisation. |
+
+## Objectifs et observations
+
+**Utilisation de Scikit-learn et méthode de classification**
+
+Nous avons utilisé la bibliothèque **Scikit-learn** (ajoutée aux bibliothèques mentionnées ci-dessus) afin de mettre en œuvre un modèle d’apprentissage supervisé de type **arbre de décision** (*Decision Tree Classifier*).  
+L’objectif était de **déterminer la classe** — positive ou négative — des patients atteints de diabète à partir du jeu de données d’entraînement `diabetes_clean.csv`.  
+Le fichier de test `test_clean.csv`, quant à lui, ne contenait pas la colonne `class`, celle-ci devant être prédite par le modèle.
+
+Pour l’optimisation du modèle, nous avons employé la méthode **Grid Search** via `GridSearchCV()`, en testant plusieurs métriques de performance :  
+- **accuracy**  
+- **balanced accuracy**  
+- **f1-score** (pertinente pour la classification binaire)
+- **TopK Accuracy** évalue si la bonne classe se trouve parmi les *K* prédictions les plus probables du modèle
+
+Après comparaison, nous avons choisi de retenir la métrique **accuracy**, car elle produisait un score identique à celui du `f1-score` (≈ 0.99) tout en réduisant le temps de calcul d’environ deux secondes.  
+La métrique `topk` a été écartée en raison d’un score légèrement inférieur (≈ 0.981).
+
+## Rendu
+
+Dans le répertoire `./data/` se trouvent les éléments suivants :
+
+- **`model_UFO.ipynb`** → Notebook Jupyter contenant l’ensemble du code d’analyse, de préparation des données et d’entraînement du modèle.  
+- **`diabeast.pkl`** → Modèle final sauvegardé (format binaire) à l’aide de *Joblib* pour une réutilisation ou un déploiement ultérieur.  
+- **`README.md`** → Fichier descriptif du projet bonus. :)  
+
+## Liens Documentation
+
+- Scikit-Learn sur grid_search: https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html
+- Joblib Doc: https://joblib.readthedocs.io/en/stable/
+
