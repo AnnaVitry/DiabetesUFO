@@ -96,5 +96,10 @@ Les éléments suivants :
 
 | Librairie   | Description courte | Commande d’installation | Utilisation principale |
 |--------------|--------------------|--------------------------|------------------------|
-| **FastAPI** | Framework web moderne, rapide et asynchrone pour construire des API avec Python. Il repose sur les standards OpenAPI et JSON Schema, facilitant la documentation automatique et les interactions avec les modèles de machine learning. | `pip install fastapi uvicorn` | Création et déploiement d’API performantes pour ex
+| **FastAPI** | Framework web moderne, rapide et asynchrone pour construire des API avec Python. Il repose sur les standards OpenAPI et JSON Schema, facilitant la documentation automatique et les interactions avec les modèles de machine learning. | `pip install fastapi[standard]` | Création et déploiement d’API performantes pour ex
 
+## Comandes executable pour api.py
+
+```bash
+$ fastapi dev ./app/api/api.py
+```
