@@ -1,4 +1,8 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, Request
+from fastapi.responses import JSONResponse
+from fastapi.encoders import jsonable_encoder
+from fastapi.exceptions import RequestValidationError
+import numpy as np
 import joblib
 import numpy as np
 from pydantic import BaseModel
@@ -45,17 +49,15 @@ def health_check():
     return {'status': 'healthy'}
 
 
-@app.post('/predict')
-def predict(data: PatientData):
+# --- Endpoint de prédiction ---
+@app.post("/predict")
+async def predict(data: PatientData):
     try:
-        # Convertir les données en tableau numpy (fixed deprecated method)
-        input_data = np.array([[value for value in data.model_dump().values()]])
-
-        # Faire la prédiction
+        # Conversion des données en tableau numpy
+        input_data = np.array([[value for value in data.dict().values()]])
         prediction = diabeast.predict(input_data)[0]
-        proba = diabeast.predict_proba(input_data).tolist()[0]  # Pour retourner aussi les probabilités
+        proba = diabeast.predict_proba(input_data).tolist()[0]
 
-        # Retourner le résultat en JSON
         return {
             "prediction": int(prediction),
             "probabilities": {
@@ -63,8 +65,13 @@ def predict(data: PatientData):
                 "positive": proba[1]
             }
         }
+
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Prediction error: {str(e)}")
+        # En cas d'erreur inattendue (ex: dimensions, type)
+        raise JSONResponse(
+            status_code=400,
+            content={"error": "Prediction failed", "detail": str(e)}
+        )
    
 # curl -X POST "http://127.0.0.1:8000/predict" \
 # -H "Content-Type: application/json" \
