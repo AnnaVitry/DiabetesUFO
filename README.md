@@ -112,8 +112,6 @@ $ fastapi dev ./app/api/api.py
 
 ## Liens Documentation
 
-## Liens Documentation
-
 - **Joblib** : gestion et sérialisation des modèles Python  
   [Documentation officielle Joblib - `load` et `dump`](https://joblib.readthedocs.io/en/latest/)
 
