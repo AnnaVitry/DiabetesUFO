@@ -85,8 +85,11 @@ Les éléments suivants :
 
 ## Liens Documentation
 
-- Scikit-Learn sur grid_search: https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html
-- Joblib Doc: https://joblib.readthedocs.io/en/stable/
+- **Scikit-learn** : utilisation de Grid Search pour l’optimisation des hyperparamètres  
+  [GridSearchCV Documentation](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html)
+
+- **Joblib** : sérialisation et sauvegarde de modèles Python  
+  [Documentation officielle Joblib](https://joblib.readthedocs.io/en/stable/)
 
 ---
 
@@ -95,11 +98,24 @@ Les éléments suivants :
 ## Blibliothéques ajoutées
 
 | Librairie   | Description courte | Commande d’installation | Utilisation principale |
-|--------------|--------------------|--------------------------|------------------------|
-| **FastAPI** | Framework web moderne, rapide et asynchrone pour construire des API avec Python. Il repose sur les standards OpenAPI et JSON Schema, facilitant la documentation automatique et les interactions avec les modèles de machine learning. | `pip install fastapi[standard]` | Création et déploiement d’API performantes pour ex
+|------------|--------------------|------------------------|----------------------|
+| **FastAPI** | Framework web moderne, rapide et asynchrone pour construire des API avec Python. Il repose sur les standards OpenAPI et JSON Schema, facilitant la documentation automatique et les interactions avec les modèles de machine learning. | `pip install fastapi[standard]` | Création et déploiement d’API performantes pour exposer des modèles de machine learning ou tout autre service web, avec documentation interactive générée automatiquement. |
+| **Pydantic** | Bibliothèque pour la validation et la sérialisation de données en Python, utilisée par FastAPI pour gérer les modèles de données d’entrée et de sortie. | `pip install pydantic` | Définition de schémas de données stricts et validation automatique des requêtes JSON dans les API FastAPI. |
+<!-- | **Joblib** | Outil performant pour la sérialisation et la sauvegarde de modèles Python, notamment ceux créés avec Scikit-learn. | `pip install joblib` | Sauvegarde et restauration rapide de modèles entraînés pour le déploiement ou la réutilisation dans une API. | -->
+
 
 ## Comandes executable pour api.py
 
 ```bash
 $ fastapi dev ./app/api/api.py
 ```
+
+## Liens Documentation
+
+## Liens Documentation
+
+- **Joblib** : gestion et sérialisation des modèles Python  
+  [Documentation officielle Joblib - `load` et `dump`](https://joblib.readthedocs.io/en/latest/)
+
+- **Pydantic** : validation et sérialisation des données pour FastAPI  
+  [Documentation officielle Pydantic - `BaseModel`](https://docs.pydantic.dev/latest/usage/models/)
