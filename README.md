@@ -160,3 +160,9 @@ Créer une interface/app pour notre API.
 - Code de l’app + README (comment lancer) sous github
 - Exemple d’appel (curl) collé dans le README.
 
+## Bibliothéques ajoutée
+
+| Librairie | Description courte | Commande d’installation | Utilisation principale |
+|--------------|--------------------|--------------------------|------------------------|
+| **Streamlit** | Bibliothèque **Python open-source** pour créer et partager rapidement des **applications web interactives** pour la science des données et le Machine Learning, en utilisant uniquement du code Python simple. | `pip install streamlit` | **Prototypage et déploiement ultra-rapides** d'applications de **visualisation de données** et de **démos interactives** de modèles de Machine Learning. |
+
