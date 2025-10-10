@@ -40,6 +40,11 @@ def read_root():
     return {'message': 'Hello from root'}
 
 
+@app.get('/health')
+def health_check():
+    return {'status': 'healthy'}
+
+
 @app.post('/predict')
 def predict(data: PatientData):
     try:
