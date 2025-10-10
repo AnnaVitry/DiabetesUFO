@@ -77,11 +77,11 @@ La métrique `topk` a été écartée en raison d’un score légèrement infér
 
 ## Rendu
 
-Dans le répertoire `./data/` se trouvent les éléments suivants :
+Les éléments suivants :
 
-- **`model_UFO.ipynb`** → Notebook Jupyter contenant l’ensemble du code d’analyse, de préparation des données et d’entraînement du modèle.  
-- **`diabeast.pkl`** → Modèle final sauvegardé (format binaire) à l’aide de *Joblib* pour une réutilisation ou un déploiement ultérieur.  
-- **`README.md`** → Fichier descriptif du projet bonus. :)  
+- **`./data/model_UFO.ipynb`** → Notebook Jupyter contenant l’ensemble du code d’analyse, de préparation des données et d’entraînement du modèle.  
+- **`./model/diabeast.pkl`** → Modèle final sauvegardé (format binaire) à l’aide de *Joblib* pour une réutilisation ou un déploiement ultérieur.  
+- **`./README.md`** → Fichier descriptif du projet bonus. :)  
 
 ## Liens Documentation
 
