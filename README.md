@@ -169,3 +169,56 @@ Ce référer au README.md dans ./app/README.md
 | **Requests** | Librairie simple et élégante pour effectuer des **requêtes HTTP**. | `pip install requests` | Communication entre **Streamlit (frontend)** et **FastAPI (backend)**. |
 | **python-dotenv** | Charge les **variables d’environnement** depuis un fichier `.env`. | `pip install python-dotenv` | Gestion des **paramètres de configuration** (ex : URL de l’API). |
 
+---
+
+# ML5
+
+## Objectifs:
+Mettre en place un environnement local reproductible qui lance l’API (Brief 3) et l’application (Brief 4).
+On veut pouvoir lancer une démo du modèle rapidement :
+juste docker compose up → tout démarre automatiquement (API + App).
+
+<!-- Ce référer au README.md dans ./app/README.md -->
+
+## Modalités d'évaluation
+- docker compose up démarre sans erreur.
+- L’application web communique bien avec l’API (pas d’erreur réseau).
+- L’API répond sur un endpoint /health (exemple : {"status": "ok"}).
+- Les logs sont clairs (pas de messages d’erreurs étranges).
+- Tu montres :
+  - un cas de succès (requête correcte → réponse OK),
+  - un cas d’erreur (entrée invalide → erreur API claire).
+
+## Livrables
+1. docker-compose.yml
+→ contient les deux services : api et app.
+2. Un Dockerfile par service
+→ ou alors, une image officielle (ex : python, node, etc.).
+3. README.md
+→ explique comment lancer le projet :
+  - prérequis (Docker, Docker Compose)
+  - commandes principales (build, up, down)
+  - variables d’environnement (.env)
+  - liens pour accéder à l’app et à l’API
+4. .env
+→ contient :
+  - PORT (port de l’API)
+  - API_BASE_URL (URL utilisée par l’app pour appeler l’API)
+
+## Critères de performance
+🔗 Connexion:	L’app appelle l’API via http://api:8000 (nom du service), pas localhost.
+♻️ Reproductibilité: Tout marche après docker compose build && docker compose up, sans rien installer à la main.
+👀 Observabilité:	L’API a un endpoint /health, des logs lisibles et des codes HTTP cohérents (200, 400, 500...).
+⚙️ Paramétrage: Les variables d’environnement sont claires et documentées. Pas de mot de passe dans le repo.
+🧹 Propreté:	.dockerignore bien rempli (.venv, __pycache__, data/ exclus).
+⚖️ Éthique:C’est une démo éducative, pas une app médicale réelle.
+
+## Bibliothéques ajoutée
+
+| Librairie | Description courte | Commande d’installation | Utilisation principale |
+|------------|--------------------|--------------------------|------------------------|
+| **Streamlit** | Bibliothèque **open-source** pour créer et partager rapidement des **applications web interactives** avec Python. | `pip install streamlit` | **Interface utilisateur** de l’application et visualisation des prédictions. |
+| **Requests** | Librairie simple et élégante pour effectuer des **requêtes HTTP**. | `pip install requests` | Communication entre **Streamlit (frontend)** et **FastAPI (backend)**. |
+| **python-dotenv** | Charge les **variables d’environnement** depuis un fichier `.env`. | `pip install python-dotenv` | Gestion des **paramètres de configuration** (ex : URL de l’API). |
+
+---
