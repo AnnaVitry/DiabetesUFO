@@ -154,7 +154,8 @@ Ce référer au README.md dans ./app/api/README.md
 # ML4
 
 ## Objectifs:
-Créer une interface/app pour notre API. REadMe avec instrucion de commentlancer l'app.
+
+Ce référer au README.md dans ./app/README.md
 
 ## Livrables
 - Code de l’app + README (comment lancer) sous github
