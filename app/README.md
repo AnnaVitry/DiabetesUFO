@@ -138,6 +138,17 @@ streamlit run app.py
 
 - **Pandas / NumPy** — Manipulation des données
 
+| Librairie | Description courte | Commande d’installation | Utilisation principale |
+|------------|--------------------|--------------------------|------------------------|
+| **Streamlit** | Bibliothèque **open-source** pour créer et partager rapidement des **applications web interactives** avec Python. | `pip install streamlit` | **Interface utilisateur** de l’application et visualisation des prédictions. |
+| **FastAPI** | Framework web **rapide et moderne** pour construire des **API REST** avec Python. | `pip install fastapi` | **Backend / API** pour le modèle de prédiction. |
+| **Requests** | Librairie simple et élégante pour effectuer des **requêtes HTTP**. | `pip install requests` | Communication entre **Streamlit (frontend)** et **FastAPI (backend)**. |
+| **python-dotenv** | Charge les **variables d’environnement** depuis un fichier `.env`. | `pip install python-dotenv` | Gestion des **paramètres de configuration** (ex : URL de l’API). |
+| **Joblib** | Outil pour la **sérialisation** efficace d’objets Python (ex : modèles ML). | `pip install joblib` | Chargement du **modèle entraîné** `diabeast.pkl`. |
+| **Scikit-learn** | Bibliothèque phare du **Machine Learning** en Python. | `pip install scikit-learn` | Entraînement et évaluation du modèle prédictif. |
+| **Pandas** | Bibliothèque pour la **manipulation et l’analyse de données tabulaires**. | `pip install pandas` | Gestion des données d’entrée et prétraitement. |
+| **NumPy** | Outil de calcul scientifique pour les **opérations numériques rapides**. | `pip install numpy` | Support mathématique du modèle et des calculs. |
+
 ---
 
 ## Licence
