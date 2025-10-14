@@ -12,6 +12,8 @@ pandas==2.3.3
 numpy==2.3.3
 joblib==1.5.2
 seaborn==0.13.2
+python-dotenv
+requests
 
 # Dépendances manquantes de votre liste initiale que vos outils peuvent nécessiter
 # Ces paquets sont souvent des sous-dépendances des bibliothèques listées ci-dessus.
