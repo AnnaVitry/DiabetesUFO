@@ -163,6 +163,8 @@ Créer une interface/app pour notre API. REadMe avec instrucion de commentlancer
 ## Bibliothéques ajoutée
 
 | Librairie | Description courte | Commande d’installation | Utilisation principale |
-|--------------|--------------------|--------------------------|------------------------|
-| **Streamlit** | Bibliothèque **Python open-source** pour créer et partager rapidement des **applications web interactives** pour la science des données et le Machine Learning, en utilisant uniquement du code Python simple. | `pip install streamlit` | **Prototypage et déploiement ultra-rapides** d'applications de **visualisation de données** et de **démos interactives** de modèles de Machine Learning. |
+|------------|--------------------|--------------------------|------------------------|
+| **Streamlit** | Bibliothèque **open-source** pour créer et partager rapidement des **applications web interactives** avec Python. | `pip install streamlit` | **Interface utilisateur** de l’application et visualisation des prédictions. |
+| **Requests** | Librairie simple et élégante pour effectuer des **requêtes HTTP**. | `pip install requests` | Communication entre **Streamlit (frontend)** et **FastAPI (backend)**. |
+| **python-dotenv** | Charge les **variables d’environnement** depuis un fichier `.env`. | `pip install python-dotenv` | Gestion des **paramètres de configuration** (ex : URL de l’API). |
 
