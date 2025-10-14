@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 import joblib
+import requests
 
 # Charger le modèle
 model = joblib.load("model/diabeast.pkl")
