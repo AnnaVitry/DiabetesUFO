@@ -27,7 +27,7 @@ class PatientData(BaseModel):
     obesity: int
 
 # Load model with proper path handling
-MODEL_PATH = Path(__file__).parent.parent.parent / 'model' / 'diabeast.pkl'
+MODEL_PATH = Path(__file__).parent / 'model' / 'diabeast.pkl'
 
 try:
     if not MODEL_PATH.exists():
@@ -44,7 +44,7 @@ def read_root():
     return {'message': 'Hello from root'}
 
 
-@app.get('/health')
+@app.get('/healths')
 def health_check():
     # Vérifier la présence du fichier modèle
     model_exists = MODEL_PATH.exists()
