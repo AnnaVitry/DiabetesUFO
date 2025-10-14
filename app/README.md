@@ -52,7 +52,7 @@ L’API renvoie la prédiction, affichée instantanément dans l’interface Str
 
 ### 1. Cloner le dépôt
 ```bash
-git clone https://github.com/<ton-utilisateur>/<ton-repo>.git
+git clone https://github.com/AnnaVitry/DiabetesUFO
 cd app
 ```
 
