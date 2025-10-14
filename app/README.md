@@ -87,10 +87,10 @@ numpy
 
 Crée un fichier `.env` dans le dossier `front/` avec, par exemple :
 ```python
-API_URL=http://127.0.0.1:8000/predict
+API_URL="http://127.0.0.1:8000/"
 ```
 
-Dans app.py, l’URL de l’API est chargée via :
+Dans `app.py`, l’URL de l’API est chargée via :
 ```python
 from dotenv import load_dotenv
 import os
