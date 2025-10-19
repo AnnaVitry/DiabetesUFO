@@ -65,11 +65,9 @@ def health_check():
 # --- Endpoint de prédiction ---
 @app.post("/predict")
 async def predict(data: PatientData):
-    print("hello")
     try:
         # Conversion des données en tableau numpy
         input_data = np.array([[value for value in data.dict().values()]])
-        print(input_data)
         prediction = diabeast.predict(input_data)[0]
         proba = diabeast.predict_proba(input_data).tolist()[0]
 
