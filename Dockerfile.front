@@ -2,17 +2,21 @@ FROM python:3.12-slim
 
 WORKDIR /code
 
-ENV STREAMLIT_HOME=/code/app/.streaml
+ENV STREAMLIT_HOME=/code/app/.streamlit
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends curl && \
     rm -rf /var/lib/apt/lists/*
 
-RUN groupadd -r frontuser && useradd -r -g frontuser frontuser
+RUN groupadd -r frontuser && useradd -r -g frontuser -m -d /home/frontuser frontuser
+
+RUN mkdir -p /code/app/.streamlit && chown -R frontuser:frontuser /code
 
 COPY requirements.txt .
 
+
 RUN pip install --no-cache-dir --upgrade -r requirements.txt
+
 
 COPY --chown=frontuser:frontuser app/front /code/app
 
@@ -22,4 +26,4 @@ EXPOSE 8000
 
 HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health || exit 1
 
-CMD ["streamlit", "run", "app/app.py", "--server.port=8501","--server.address=0.0.0.0"]
+CMD ["streamlit", "run", "app/app.py", "--server.port=8501","--server.address=0.0.0.0", "--browser.gatherUsageStats=false"]
