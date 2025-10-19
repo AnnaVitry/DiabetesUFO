@@ -8,7 +8,7 @@ RUN apt-get update && \
 
 RUN groupadd -r apiuser && useradd -r -g apiuser apiuser
 
-COPY requirements.txt .
+COPY app/api/requirements.txt .
 
 RUN pip install --no-cache-dir --upgrade -r requirements.txt
 

@@ -12,7 +12,7 @@ RUN groupadd -r frontuser && useradd -r -g frontuser -m -d /home/frontuser front
 
 RUN mkdir -p /code/app/.streamlit && chown -R frontuser:frontuser /code
 
-COPY requirements.txt .
+COPY app/front/requirements.txt .
 
 
 RUN pip install --no-cache-dir --upgrade -r requirements.txt

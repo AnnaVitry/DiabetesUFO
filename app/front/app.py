@@ -1,6 +1,4 @@
 import streamlit as st
-import numpy as np
-import joblib
 import requests
 # from dotenv import load_dotenv
 import os

@@ -2,16 +2,8 @@
 
 # Frameworks de l'application et du déploiement
 streamlit==1.36.0        # Version stable actuelle de Streamlit
-fastapi==0.111.0         # Version stable actuelle de FastAPI
 pydantic==2.8.2          # Version stable actuelle de Pydantic
-uvicorn[standard]==0.30.3 # Le serveur ASGI inclus dans la version standard de FastAPI
 
-# Bibliothèques de Data Science/ML (avec vos versions)
-scikit-learn==1.7.2
-pandas==2.3.3
-numpy==2.3.3
-joblib==1.5.2
-seaborn==0.13.2
 
 # Dépendances manquantes de votre liste initiale que vos outils peuvent nécessiter
 # Ces paquets sont souvent des sous-dépendances des bibliothèques listées ci-dessus.
