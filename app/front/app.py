@@ -2,14 +2,14 @@ import streamlit as st
 import numpy as np
 import joblib
 import requests
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 import os
 
 
 # Charger le modèle
 # model = joblib.load("model/diabeast.pkl")
 
-load_dotenv()
+# load_dotenv()
 API_URL = os.environ.get('API_URL')
 
 # Page configuration
@@ -116,7 +116,7 @@ if submitted:
     st.divider()
 
     with st.spinner("Analyse en cours... Veuillez patienter"):
-        response = requests.post(API_URL+"predict", json=user_input)
+        response = requests.post(API_URL+"/predict", json=user_input)
 
         if response.status_code == 200:
             data = response.json()

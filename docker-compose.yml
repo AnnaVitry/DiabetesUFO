@@ -6,11 +6,41 @@ services:
     container_name: fastapi-backend
     ports:
       - "8000:8000"
-    # networks:
-    #   - app-network
+    networks:
+      - app-network
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/healths"]
       interval: 30s
       timeout: 10s
       retries: 3
       start_period: 40s
+    restart: unless-stopped
+  
+  #Streamlit Front service
+  front:
+    build:
+      context: .
+      dockerfile: Dockerfile.front
+    container_name: streamlit-frontend
+    ports:
+      - "8501:8501"
+    environment:
+      - API_URL=http://api:8000
+    networks:
+      - app-network
+    depends_on:
+      api:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"] 
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    restart: unless-stopped
+
+
+#Define the network
+networks:
+  app-network:
+    driver: bridge
