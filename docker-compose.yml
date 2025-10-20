@@ -1,46 +1,81 @@
+# Configuration Docker Compose pour l'application DiabetesUFO
+# Architecture: Backend FastAPI + Frontend Streamlit
+
 services:
+  # ============================================
+  # SERVICE API - Backend FastAPI
+  # ============================================
   api:
-    build: 
-      context: .
-      dockerfile: Dockerfile.api
-    container_name: fastapi-backend
-    ports:
-      - "8000:8000"
-    networks:
-      - app-network
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/healths"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 40s
-    restart: unless-stopped
-  
-  #Streamlit Front service
-  front:
+    # Construction de l'image depuis le Dockerfile dédié
     build:
-      context: .
-      dockerfile: Dockerfile.front
-    container_name: streamlit-frontend
+      context: .                    # Contexte de build = répertoire courant
+      dockerfile: Dockerfile.api    # Fichier Dockerfile spécifique pour l'API
+
+    container_name: fastapi-backend # Nom explicite du conteneur
+
+    # Exposition des ports: HOST:CONTAINER
     ports:
-      - "8501:8501"
-    environment:
-      - API_URL=http://api:8000
+      - "8000:8000"                 # Port API FastAPI accessible sur http://localhost:8000
+
+    # Connexion au réseau privé pour communication inter-conteneurs
     networks:
       - app-network
+
+    # Vérification de l'état de santé du service
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/healths"]  # Endpoint de santé
+      interval: 30s                 # Vérification toutes les 30 secondes
+      timeout: 10s                  # Timeout de 10s par requête
+      retries: 3                    # 3 tentatives avant de marquer le service comme unhealthy
+      start_period: 40s             # Période de grâce de 40s au démarrage
+
+    # Politique de redémarrage: redémarre automatiquement sauf arrêt manuel
+    restart: unless-stopped
+
+  # ============================================
+  # SERVICE FRONT - Interface Streamlit
+  # ============================================
+  front:
+    # Construction depuis le Dockerfile frontend
+    build:
+      context: .                    # Même contexte de build
+      dockerfile: Dockerfile.front  # Dockerfile spécifique Streamlit
+
+    container_name: streamlit-frontend
+
+    # Port Streamlit (interface web)
+    ports:
+      - "8501:8501"                 # Interface accessible sur http://localhost:8501
+
+    # Variables d'environnement injectées dans le conteneur
+    environment:
+      # URL de l'API backend (résolution DNS via le nom du service 'api')
+      - API_URL=http://api:8000
+
+    # Connexion au même réseau que l'API
+    networks:
+      - app-network
+
+    # Dépendances de démarrage
     depends_on:
       api:
-        condition: service_healthy
+        condition: service_healthy  # ATTEND que l'API soit healthy avant de démarrer
+
+    # Vérification de santé Streamlit
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"] 
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"] # Endpoint interne Streamlit
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 40s
+      start_period: 40s             # Temps de démarrage de Streamlit
+
     restart: unless-stopped
 
 
-#Define the network
+# ============================================
+# CONFIGURATION RÉSEAU
+# ============================================
 networks:
   app-network:
-    driver: bridge
+    driver: bridge                  # Réseau bridge pour isolation et communication interne
+                                    # Permet la résolution DNS entre conteneurs (api <-> front)
