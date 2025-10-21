@@ -1,5 +1,7 @@
 1. Logs déploiement Render du front:
 
+URL front: `https://diabetesufo-1.onrender.com/`
+
 ```bash
 2025-10-21T10:06:59.085455246Z ==> Deploying...
 2025-10-21T10:07:57.932082702Z ==> Running 'streamlit run app.py'
@@ -99,6 +101,9 @@
 
 ---
 2. Logs de déploiement Render de l'API:
+
+URL API: `https://diabetesufo.onrender.com/docs`
+
 ```bash
 2025-10-21T10:19:05.540008817Z ==> Deploying...
 2025-10-21T10:19:40.73112223Z ==> Running 'fastapi run api.py'
